@@ -8,13 +8,13 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 # Загрузка артефактов
 @st.cache_data
 def load_artifacts():
-    with open('failure_prediction_model.pkl', 'rb') as file:
+    with open('artifacts/failure_prediction_model.pkl', 'rb') as file:
         model = pickle.load(file)
 
-    with open('feature_scaler.pkl', 'rb') as file:
+    with open('artifacts/feature_scaler.pkl', 'rb') as file:
         scaler = pickle.load(file)
 
-    with open('model_features.pkl', 'rb') as file:
+    with open('artifacts/model_features.pkl', 'rb') as file:
         model_features = pickle.load(file)
     
     return model, scaler, model_features
@@ -24,7 +24,7 @@ model, scaler, model_features = load_artifacts()
 # Загрузка данных
 @st.cache_data
 def load_data():
-    return pd.read_csv("processed_full_dataset.csv")
+    return pd.read_csv("data/processed/processed_full_dataset.csv")
 
 df = load_data()
 
